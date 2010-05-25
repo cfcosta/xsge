@@ -31,7 +31,7 @@ namespace XSGE {
         SDL_WM_SetCaption(title, 0);
     }
 
-    void Window::render(Engine *engine)
+    void Window::render(Engine engine)
     {
         SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
 
@@ -42,6 +42,5 @@ namespace XSGE {
         if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
 
         SDL_Flip(screen);
-
     }
 }

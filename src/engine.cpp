@@ -8,6 +8,8 @@ namespace XSGE {
         fps_counter = 0;
         current_fps = 0;
 
+        window = new Window(800,600, "Unnamed Window");
+
         initialize();
     }
 
@@ -73,7 +75,7 @@ namespace XSGE {
             tick_counter = 0;
         }
 
-        window->render(this);
+        window.render(this);
     }
 
     int Engine::get_fps()

@@ -1,6 +1,3 @@
-#ifndef XSGE_ENGINE
-#define XSGE_ENGINE
-
 #include <SDL.h>
 
 #include "window.h"
@@ -17,6 +14,7 @@ namespace XSGE
             int get_fps();
 
             void pre_render();
+            void handle_input();
 
             Window get_window();
         private:
@@ -27,16 +25,14 @@ namespace XSGE
 
             bool quit;
             
-            Window *window = new Window(800,600);
+            Window window;
         protected:
             virtual void initialize();
             virtual void think(int elapsed_time);
             virtual void render(SDL_Surface destination_surface);
             virtual void end();
 
-            virtual void key_up();
-            virtual void key_down();
+            virtual void key_up(SDLKey &key);
+            virtual void key_down(SDLKey &key);
     };
 }
-
-#endif

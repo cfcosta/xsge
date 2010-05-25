@@ -1,13 +1,10 @@
-#ifndef XSGE_WINDOW
-#define XSGE_WINDOW
-
-#include "engine.h"
+#include <SDL.h>
 
 namespace XSGE {
     class Window
     {
         public:
-            Window(int width, int height, const char* title = "Unnamed Window");
+            Window(int width, int height, const char* title);
             virtual ~Window();
 
             void set_size(int width, int height);
@@ -16,7 +13,7 @@ namespace XSGE {
             const char* get_title();
             SDL_Surface* get_screen();
 
-            void render(Engine *engine);
+            void render(Engine engine);
 
             virtual void active();
             virtual void inactive();
@@ -29,5 +26,3 @@ namespace XSGE {
             SDL_Surface *screen;
     };
 }
-
-#endif
