@@ -8,7 +8,7 @@ namespace XSGE {
         fps_counter = 0;
         current_fps = 0;
 
-        window = new Window(800,600, "Unnamed Window");
+        this->window = new Window(800,600, "Unnamed Window");
 
         initialize();
     }
