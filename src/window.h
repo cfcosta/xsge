@@ -1,6 +1,8 @@
 #ifndef XSGE_WINDOW
 #define XSGE_WINDOW
 
+#include "engine.h"
+
 namespace XSGE {
     class Window
     {
@@ -13,6 +15,8 @@ namespace XSGE {
 
             const char* get_title();
             SDL_Surface* get_screen();
+
+            void render(Engine *engine);
 
             virtual void active();
             virtual void inactive();

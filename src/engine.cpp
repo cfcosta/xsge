@@ -4,13 +4,9 @@ namespace XSGE {
     Engine::Engine()
     {
         last_tick = 0;
-        screen = 0;
         tick_counter = 0;
         fps_counter = 0;
         current_fps = 0;
-        minimized = false;
-
-        window = new Window(800,600);
 
         initialize();
     }
@@ -39,7 +35,7 @@ namespace XSGE {
         }
     }
 
-    void handle_input()
+    void Engine::handle_input()
     {
         SDL_Event event;
 
@@ -66,7 +62,7 @@ namespace XSGE {
         }
     }
 
-    void pre_render()
+    void Engine::pre_render()
     {
         ++fps_counter;
 
@@ -80,8 +76,8 @@ namespace XSGE {
         window->render(this);
     }
 
-    int get_fps()
+    int Engine::get_fps()
     {
-        return current_fps;
+        return this->current_fps;
     }
 }

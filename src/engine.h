@@ -27,7 +27,7 @@ namespace XSGE
 
             bool quit;
             
-            Window window;
+            Window *window = new Window(800,600);
         protected:
             virtual void initialize();
             virtual void think(int elapsed_time);
