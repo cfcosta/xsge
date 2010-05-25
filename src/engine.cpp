@@ -8,7 +8,7 @@ namespace XSGE {
         fps_counter = 0;
         current_fps = 0;
 
-        this->window = new Window(800,600, "Unnamed Window");
+        window = new Window(800,600, "Unnamed Window");
 
         initialize();
     }
@@ -75,7 +75,7 @@ namespace XSGE {
             tick_counter = 0;
         }
 
-        SDL_Surface *screen = window.get_screen();
+        SDL_Surface *screen = window->get_screen();
         SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
         if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
         render(*screen);

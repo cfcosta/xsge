@@ -26,7 +26,7 @@ namespace XSGE
 
             bool quit;
             
-            Window window;
+            Window *window;
 
         protected:
             virtual void initialize();
