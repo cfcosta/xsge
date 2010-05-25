@@ -31,16 +31,8 @@ namespace XSGE {
         SDL_WM_SetCaption(title, 0);
     }
 
-    void Window::render(Engine engine)
+    SDL_Surface* Window::get_screen() 
     {
-        SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
-
-        if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
-
-        engine->render(screen);
-
-        if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
-
-        SDL_Flip(screen);
+        return screen;
     }
 }

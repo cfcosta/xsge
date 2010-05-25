@@ -75,7 +75,12 @@ namespace XSGE {
             tick_counter = 0;
         }
 
-        window.render(this);
+        SDL_Surface *screen = window.get_screen();
+        SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
+        if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
+        render(*screen);
+        if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
+        SDL_Flip(screen);
     }
 
     int Engine::get_fps()

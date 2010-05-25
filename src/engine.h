@@ -17,6 +17,7 @@ namespace XSGE
             void handle_input();
 
             Window get_window();
+
         private:
             long last_tick;
             int tick_counter;
@@ -26,10 +27,11 @@ namespace XSGE
             bool quit;
             
             Window window;
+
         protected:
             virtual void initialize();
             virtual void think(int elapsed_time);
-            virtual void render(SDL_Surface destination_surface);
+            virtual void render(SDL_Surface render);
             virtual void end();
 
             virtual void key_up(SDLKey &key);

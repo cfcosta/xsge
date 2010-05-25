@@ -12,11 +12,6 @@ namespace XSGE {
 
             const char* get_title();
             SDL_Surface* get_screen();
-
-            void render(Engine engine);
-
-            virtual void active();
-            virtual void inactive();
         private:
             const char* title;
 
