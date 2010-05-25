@@ -3,6 +3,9 @@
 
 #include <SDL.h>
 
+#include "window.h"
+#include "input.h"
+
 namespace XSGE
 {
     class Engine
@@ -11,14 +14,13 @@ namespace XSGE
             Engine();
             virtual ~Engine();
 
-            void initialize();
+            void run();
 
-            virtual void custom_init();
+            virtual void initialize();
             virtual void think(int time_elapsed);
             virtual void render(SDL_Surface destination_surface);
             virtual void end();
 
-            SDL_Surface* get_surface();
             int get_fps();
 
             Window get_window();
