@@ -4,13 +4,11 @@ namespace XSGE {
     Window::Window(int width, int height, const char *title = "Unnamed Window")
     {
         if (SDL_Init(SDL_INIT_VIDEO) < 0)
-        {
-            fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
-            exit(1);
+        { fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError()); exit(1);
         }
 
         set_size(width, height);
-        
+
         if (this->screen == NULL)
         {
             fprintf(stderr, "Unable to set up video: %s\n", SDL_GetError());
@@ -31,5 +29,19 @@ namespace XSGE {
     {
         this->title = title;
         SDL_WM_SetCaption(title, 0);
+    }
+
+    void Window::render(Engine *engine)
+    {
+        SDL_FillRect(screen, 0, SDL_MapRGB(screen->format, 0, 0, 0));
+
+        if (SDL_MUSTLOCK(screen)) SDL_LockSurface(screen);
+
+        engine->render(screen);
+
+        if (SDL_MUSTLOCK(screen)) SDL_UnlockSurface(screen);
+
+        SDL_Flip(screen);
+
     }
 }
